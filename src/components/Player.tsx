@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PlayerProps } from "../types/Player";
+import { ButtonLabels } from "../types/ButtonLabels";
 
 export function Player({ name, symbol }: PlayerProps) {
   const [isEditing, setIsEditing] = useState(false);
@@ -52,7 +53,8 @@ export function Player({ name, symbol }: PlayerProps) {
     <li className="player">
       {isEditing ? renderPlayerForm() : renderPlayerDetails()}
       <button onClick={handleSetIsEditing}>
-        {isEditing ? "Save" : "Edit"}
+        {isEditing ? ButtonLabels.SAVE : ButtonLabels.EDIT}{" "}
+        {/* Use the new type */}
       </button>
     </li>
   );
