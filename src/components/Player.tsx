@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { PlayerProps } from "../types/Player";
 
 export function Player({ name, symbol }: PlayerProps) {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedName, setEditedName] = useState(name);
-  const [editedSymbol, setEditedSymbol] = useState(symbol);
+  const [editedValues, setEditedValues] = useState({
+    name: name,
+    symbol: symbol,
+  });
   const [playerName, setPlayerName] = useState(name);
   const [playerSymbol, setPlayerSymbol] = useState(symbol);
 
   const handleSetIsEditing = () => {
     if (isEditing) {
-      setPlayerName(editedName);
-      setPlayerSymbol(editedSymbol);
+      setPlayerName(editedValues.name);
+      setPlayerSymbol(editedValues.symbol);
     }
     setIsEditing((prevValue) => !prevValue);
   };
 
-  const handleChange = (
-    setter: React.Dispatch<React.SetStateAction<string>>,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setter(e.target.value);
+  const handleChange = (field: "name" | "symbol", value: string) => {
+    setEditedValues((prev) => ({ ...prev, [field]: value }));
   };
 
   const renderPlayerDetails = () => {
@@ -37,13 +36,13 @@ export function Player({ name, symbol }: PlayerProps) {
       <span className="player">
         <input
           className="player-name"
-          value={editedName}
-          onChange={(e) => handleChange(setEditedName, e)}
+          value={editedValues.name}
+          onChange={(e) => handleChange("name", e.target.value)}
         />
         <input
           className="player-symbol"
-          value={editedSymbol}
-          onChange={(e) => handleChange(setEditedSymbol, e)}
+          value={editedValues.symbol}
+          onChange={(e) => handleChange("symbol", e.target.value)}
         />
       </span>
     );
