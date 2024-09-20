@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { PlayerProps } from "../types/Player";
 
-export function Player({ name, symbol }) {
+export function Player({ name, symbol }: PlayerProps) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleSetIsEditing = () => {
@@ -11,7 +12,7 @@ export function Player({ name, symbol }) {
     return (
       <span className="player">
         <span className="player-name">{name}</span>
-        <span className="player-symnol">{symbol}</span>
+        <span className="player-symbol">{symbol}</span>
       </span>
     );
   };
@@ -20,7 +21,7 @@ export function Player({ name, symbol }) {
     return (
       <span className="player">
         <input className="player-name" defaultValue={name} />
-        <input className="player-symnol" defaultValue={symbol} />
+        <input className="player-symbol" defaultValue={symbol} />
       </span>
     );
   };
