@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export function Player({ name, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
+
+  const handleSetIsEditing = () => {
+    setIsEditing(!isEditing);
+  };
 
   return (
     <li>
@@ -16,7 +20,9 @@ export function Player({ name, symbol }) {
           <span className="player-symnol">{symbol}</span>
         </span>
       )}
-      <button onClick={() => setIsEditing(!isEditing)}>{isEditing ? 'Save' : 'Edit'}</button>
+      <button onClick={handleSetIsEditing}>
+        {isEditing ? "Save" : "Edit"}
+      </button>
     </li>
   );
 }
