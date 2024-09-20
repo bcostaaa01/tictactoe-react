@@ -3,16 +3,24 @@ import { PlayerProps } from "../types/Player";
 
 export function Player({ name, symbol }: PlayerProps) {
   const [isEditing, setIsEditing] = useState(false);
+  const [editedName, setEditedName] = useState(name);
+  const [editedSymbol, setEditedSymbol] = useState(symbol);
+  const [playerName, setPlayerName] = useState(name);
+  const [playerSymbol, setPlayerSymbol] = useState(symbol);
 
   const handleSetIsEditing = () => {
+    if (isEditing) {
+      setPlayerName(editedName);
+      setPlayerSymbol(editedSymbol);
+    }
     setIsEditing(!isEditing);
   };
 
   const renderPlayerDetails = () => {
     return (
       <span className="player">
-        <span className="player-name">{name}</span>
-        <span className="player-symbol">{symbol}</span>
+        <span className="player-name">{playerName}</span>
+        <span className="player-symbol">{playerSymbol}</span>
       </span>
     );
   };
@@ -20,8 +28,16 @@ export function Player({ name, symbol }: PlayerProps) {
   const renderPlayerForm = () => {
     return (
       <span className="player">
-        <input className="player-name" defaultValue={name} />
-        <input className="player-symbol" defaultValue={symbol} />
+        <input
+          className="player-name"
+          value={editedName}
+          onChange={(e) => setEditedName(e.target.value)}
+        />
+        <input
+          className="player-symbol"
+          value={editedSymbol}
+          onChange={(e) => setEditedSymbol(e.target.value)}
+        />
       </span>
     );
   };
