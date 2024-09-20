@@ -4,10 +4,7 @@ import { ButtonLabels } from "../types/ButtonLabels";
 
 export function Player({ name, symbol }: PlayerProps) {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedValues, setEditedValues] = useState({
-    name: name,
-    symbol: symbol,
-  });
+  const [editedValues, setEditedValues] = useState({ name, symbol });
   const [playerName, setPlayerName] = useState(name);
   const [playerSymbol, setPlayerSymbol] = useState(symbol);
 
