@@ -54,7 +54,6 @@ export function Player({ name, symbol }: PlayerProps) {
       {isEditing ? renderPlayerForm() : renderPlayerDetails()}
       <button onClick={handleSetIsEditing}>
         {isEditing ? ButtonLabels.SAVE : ButtonLabels.EDIT}{" "}
-        {/* Use the new type */}
       </button>
     </li>
   );
