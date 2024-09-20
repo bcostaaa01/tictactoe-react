@@ -16,6 +16,13 @@ export function Player({ name, symbol }: PlayerProps) {
     setIsEditing((prevValue) => !prevValue);
   };
 
+  const handleChange = (
+    setter: React.Dispatch<React.SetStateAction<string>>,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setter(e.target.value);
+  };
+
   const renderPlayerDetails = () => {
     return (
       <span className="player">
@@ -31,12 +38,12 @@ export function Player({ name, symbol }: PlayerProps) {
         <input
           className="player-name"
           value={editedName}
-          onChange={(e) => setEditedName(e.target.value)}
+          onChange={(e) => handleChange(setEditedName, e)}
         />
         <input
           className="player-symbol"
           value={editedSymbol}
-          onChange={(e) => setEditedSymbol(e.target.value)}
+          onChange={(e) => handleChange(setEditedSymbol, e)}
         />
       </span>
     );
