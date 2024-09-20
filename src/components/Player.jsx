@@ -7,19 +7,27 @@ export function Player({ name, symbol }) {
     setIsEditing(!isEditing);
   };
 
+  const renderPlayerDetails = () => {
+    return (
+      <span className="player">
+        <span className="player-name">{name}</span>
+        <span className="player-symnol">{symbol}</span>
+      </span>
+    );
+  };
+
+  const renderPlayerForm = () => {
+    return (
+      <span className="player">
+        <input className="player-name" defaultValue={name} />
+        <input className="player-symnol" defaultValue={symbol} />
+      </span>
+    );
+  };
+
   return (
-    <li>
-      {isEditing ? (
-        <span className="player">
-          <input className="player-name" defaultValue={name} />
-          <input className="player-symnol" defaultValue={symbol} />
-        </span>
-      ) : (
-        <span className="player">
-          <span className="player-name">{name}</span>
-          <span className="player-symnol">{symbol}</span>
-        </span>
-      )}
+    <li className="player">
+      {isEditing ? renderPlayerForm() : renderPlayerDetails()}
       <button onClick={handleSetIsEditing}>
         {isEditing ? "Save" : "Edit"}
       </button>
