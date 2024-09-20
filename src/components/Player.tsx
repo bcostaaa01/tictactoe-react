@@ -13,7 +13,7 @@ export function Player({ name, symbol }: PlayerProps) {
       setPlayerName(editedName);
       setPlayerSymbol(editedSymbol);
     }
-    setIsEditing(!isEditing);
+    setIsEditing((prevValue) => !prevValue);
   };
 
   const renderPlayerDetails = () => {
