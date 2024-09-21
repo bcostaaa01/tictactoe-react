@@ -12,7 +12,7 @@ function App() {
       <div id="game-container">
         <ol id="players">
           {players.map((player) => (
-            <Player key={player.name} name={player.name} symbol={player.symbol} />
+            <Player key={player.name} name={player.name} symbol={player.symbol} isCurrentlyPlaying />
           ))}
         </ol>
         <GameBoard players={players} />
