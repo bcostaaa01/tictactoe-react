@@ -5,6 +5,5 @@ export interface GameStore {
   gameStatus?: string;
   setCurrentPlayer: (player: PlayerProps) => void;
   players: PlayerProps[];
-  setPlayer: (index: number, player: PlayerProps) => void;
   setGameStatus: (status: string) => void;
 }
