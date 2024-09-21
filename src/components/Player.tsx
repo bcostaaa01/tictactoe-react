@@ -9,8 +9,6 @@ export function Player({ name, symbol }: PlayerProps) {
   const [playerName, setPlayerName] = useState(name);
   const [playerSymbol, setPlayerSymbol] = useState(symbol);
 
-  const { currentPlayer } = useGameStore();
-
   const handleSetIsEditing = () => {
     if (isEditing) {
       setPlayerName(editedValues.name);
@@ -50,7 +48,7 @@ export function Player({ name, symbol }: PlayerProps) {
   };
 
   return (
-    <li className={`player ${currentPlayer ? "highlight-player" : "players"}`}>
+    <li id="players">
       {isEditing ? renderPlayerForm() : renderPlayerDetails()}
       <button onClick={handleSetIsEditing}>
         {isEditing ? ButtonLabels.SAVE : ButtonLabels.EDIT}{" "}

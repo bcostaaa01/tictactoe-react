@@ -33,7 +33,7 @@ const useGameLogic = (players: PlayerProps[]) => {
 };
 
 export function GameBoard({ players }: GameBoardProps) {
-  const { setCurrentPlayer, currentPlayer } = useGameStore();
+  const { setCurrentPlayer } = useGameStore();
   const { squares, handleClick, status } = useGameLogic(players);
 
   const handlePlayerClick = (index: number) => {
