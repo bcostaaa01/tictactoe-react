@@ -53,16 +53,6 @@ export function GameBoard({ players }: GameBoardProps) {
         ))}
       </div>
       <div className="status">{status}</div>
-      <ol id="players">
-        {players.map((player) => (
-          <Player
-            key={player.name}
-            name={player.name}
-            symbol={player.symbol}
-            isCurrentlyPlaying={currentPlayer?.name === player.name} // Check if current player
-          />
-        ))}
-      </ol>
     </div>
   );
 }

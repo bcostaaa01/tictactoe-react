@@ -1,10 +1,5 @@
-import create from 'zustand';
-import { PlayerProps } from '../types/Player';
-
-interface GameStore {
-  currentPlayer: PlayerProps | null;
-  setCurrentPlayer: (player: PlayerProps) => void;
-}
+import { create } from "zustand";
+import { GameStore } from "../types/stores/GameStore";
 
 export const useGameStore = create<GameStore>((set) => ({
   currentPlayer: null,
