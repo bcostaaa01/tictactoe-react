@@ -1,12 +1,5 @@
 import { create } from "zustand";
-import { PlayerProps } from "../types/Player";
-
-interface GameStore {
-  currentPlayer: PlayerProps | null;
-  setCurrentPlayer: (player: PlayerProps) => void;
-  players: PlayerProps[];
-  setPlayer: (index: number, player: PlayerProps) => void;
-}
+import { GameStore } from "../types/stores/GameStore";
 
 export const useGameStore = create<GameStore>((set) => ({
   currentPlayer: null,
@@ -18,4 +11,5 @@ export const useGameStore = create<GameStore>((set) => ({
       players[index] = player;
       return { players };
     }),
+  setGameStatus: (status) => set({ gameStatus: status }),
 }));

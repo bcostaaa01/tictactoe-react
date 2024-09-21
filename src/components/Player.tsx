@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { PlayerProps } from "../types/Player";
 import { ButtonLabels } from "../types/ButtonLabels";
-import { useGameStore } from "../stores/useGameStore";
 
 export function Player({ name, symbol }: PlayerProps) {
   const [isEditing, setIsEditing] = useState(false);

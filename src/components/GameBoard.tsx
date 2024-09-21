@@ -27,6 +27,8 @@ const useGameLogic = (players: PlayerProps[]) => {
   const winner = calculateWinner;
   const status = winner
     ? `Winner: ${winner}`
+    : squares.every(square => square)
+    ? "It's a draw!"
     : `Next player: ${players[xIsNext ? 0 : 1].name}`;
 
   return { squares, handleClick, status, winner, currentPlayer };
