@@ -11,18 +11,14 @@ export const useCalculateWinner = (squares: Squares) => {
       [2, 5, 8],
       [0, 4, 8],
       [2, 4, 6],
-    ];
-    for (let line of lines) {
-      const [a, b, c] = line;
-      if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
-      ) {
-        return squares[a];
-      }
-    }
-    return null;
+    ].map((line) => line.map((index) => squares[index]));
+    return (
+      lines.find((line) =>
+        line.every(
+          (value, index, array) => value !== null && value === array[0]
+        )
+      )?.[0] ?? null
+    );
   };
 
   return calculateWinner(squares);
